@@ -1,32 +1,32 @@
-import React, { useState, FocusEvent, useEffect } from 'react';
+import { useState, FocusEvent } from 'react';
 import {
   FormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  Input,
+  Radio,
+  RadioGroup,
+  Stack,
 } from '@chakra-ui/react';
 import { useFormContext } from 'react-hook-form';
 import {
   formatValidationRules,
   isRequiredField,
 } from '../GeneratedForm/index.utils';
-import { TextInputProps } from './index.types';
+import { FieldOption } from '../OMAForm/index.types';
+import { CheckboxInputProps } from './index.types';
 
-function InputField(props: TextInputProps) {
+function RadioField(props: CheckboxInputProps) {
   const {
     register,
     formState: { errors },
   } = useFormContext();
-  const { name, label, type, helperText, validationRules } = props;
+  const { name, label, options, layout, helperText, validationRules } = props;
   const { onBlur, ...inputProps } = register(
     name,
     formatValidationRules(validationRules || [])
   );
   const [isFocus, setIsFocus] = useState<boolean>(false);
-  const [isRequired, setIsRequired] = useState<boolean>(false);
-
-  useEffect(() => setIsRequired(isRequiredField(validationRules || [])), []);
 
   function handleBlur(event: FocusEvent<HTMLInputElement>): void {
     setIsFocus(false);
@@ -36,18 +36,28 @@ function InputField(props: TextInputProps) {
   return (
     <FormControl
       isInvalid={!!errors[name]}
-      isRequired={isRequired}
+      isRequired={isRequiredField(validationRules || [])}
       marginBottom="14px"
     >
       <FormLabel htmlFor={name}>{label}</FormLabel>
-      <Input
-        id={name}
-        type={type}
-        variant="flushed"
-        onFocus={() => setIsFocus(true)}
-        onBlur={handleBlur}
-        {...inputProps}
-      />
+      <RadioGroup>
+        <Stack
+          direction={layout === 'Vertical' ? 'column' : 'row'}
+          spacing="24px"
+        >
+          {options.map((option: FieldOption, index) => (
+            <Radio
+              key={index}
+              onFocus={() => setIsFocus(true)}
+              onBlur={handleBlur}
+              {...inputProps}
+              value={option.value}
+            >
+              {option.label}
+            </Radio>
+          ))}
+        </Stack>
+      </RadioGroup>
       {!!helperText && <FormHelperText>{helperText}</FormHelperText>}
       <FormErrorMessage fontSize="1rem" color="tomato">
         {errors[name] && errors[name].message}
@@ -56,4 +66,4 @@ function InputField(props: TextInputProps) {
   );
 }
 
-export default InputField;
+export default RadioField;

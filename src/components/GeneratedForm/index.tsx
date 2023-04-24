@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import InputField from '../InputField';
+import RadioField from '../RadioField';
 import { Field, FormProps } from './index.types';
 
 function GeneratedForm(props: FormProps): JSX.Element {
@@ -10,9 +11,12 @@ function GeneratedForm(props: FormProps): JSX.Element {
   return (
     <FormProvider {...methods}>
       <form method={method}>
-        {fields.map((field: Field, index) => (
-          <InputField {...field} key={index} />
-        ))}
+        {fields.map((field: Field, index) => {
+          if (field.input === 'Text')
+            return <InputField {...field} key={index} />;
+          if (field.input === 'Radio')
+            return <RadioField {...field} key={index} />;
+        })}
         <button
           type="button"
           onClick={() => console.table(methods.getValues())}
