@@ -1,16 +1,17 @@
+import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import InputField from '../InputField';
 import { Field, FormProps } from './index.types';
 
-function OMAForm(props: FormProps): JSX.Element {
+function GeneratedForm(props: FormProps): JSX.Element {
   const { fields, method } = props;
   const methods = useForm({ mode: 'all', reValidateMode: 'onChange' });
 
   return (
     <FormProvider {...methods}>
       <form method={method}>
-        {fields.map((field: Field) => (
-          <InputField {...field} />
+        {fields.map((field: Field, index) => (
+          <InputField {...field} key={index} />
         ))}
         <button
           type="button"
@@ -23,4 +24,4 @@ function OMAForm(props: FormProps): JSX.Element {
   );
 }
 
-export default OMAForm;
+export default GeneratedForm;

@@ -1,12 +1,11 @@
+import React from 'react';
 import {
   FormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
   Input,
-  useFormControl,
 } from '@chakra-ui/react';
-import { useEffect, useId } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { InputProps } from './index.types';
 import { formatValidationRules } from './index.utils';
