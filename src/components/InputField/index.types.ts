@@ -1,4 +1,4 @@
-export type InputType = "text" | "email" | "password" | string;
+export type InputType = 'text' | 'email' | 'password' | string;
 
 export type InputValidationRule = {
   type: string;
