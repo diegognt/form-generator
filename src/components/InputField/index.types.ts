@@ -1,15 +1,11 @@
-export type InputType = 'text' | 'email' | 'password' | string;
+import { FieldRule } from '../GeneratedForm/index.types';
 
-export type InputValidationRule = {
-  type: string;
-  value: boolean | string | number;
-  message: string;
-};
+export type InputType = 'text' | 'email' | 'password';
 
-export type InputProps = {
+export type TextInputProps = {
   name: string;
   label: string;
   type: InputType;
   helperText?: string;
-  validationRules?: InputValidationRule[];
+  validationRules?: FieldRule[];
 };

@@ -6,27 +6,48 @@ import {
   FormLabel,
   Input,
 } from '@chakra-ui/react';
+import { useState, FocusEvent, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { InputProps } from './index.types';
-import { formatValidationRules } from './index.utils';
+import { formatValidationRules, isRequiredField } from '../OMAForm/index.utils';
+import { TextInputProps } from './index.types';
 
-function InputField(props: InputProps) {
+function InputField(props: TextInputProps) {
   const {
     register,
     formState: { errors },
   } = useFormContext();
   const { name, label, type, helperText, validationRules } = props;
-  const inputProps = register(
+  const { onBlur, ...inputProps } = register(
     name,
     formatValidationRules(validationRules || [])
   );
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [isRequired, setIsRequired] = useState<boolean>(false);
+
+  useEffect(() => setIsRequired(isRequiredField(validationRules || [])), []);
+
+  function handleBlur(event: FocusEvent<HTMLInputElement>): void {
+    setIsFocus(false);
+    onBlur(event);
+  }
 
   return (
-    <FormControl py={4} isInvalid={!!errors[name]}>
+    <FormControl
+      isInvalid={!!errors[name]}
+      isRequired={isRequired}
+      marginBottom="14px"
+    >
       <FormLabel htmlFor={name}>{label}</FormLabel>
-      <Input id={name} type={type} {...inputProps} />
+      <Input
+        id={name}
+        type={type}
+        variant="flushed"
+        onFocus={() => setIsFocus(true)}
+        onBlur={handleBlur}
+        {...inputProps}
+      />
       {!!helperText && <FormHelperText>{helperText}</FormHelperText>}
-      <FormErrorMessage>
+      <FormErrorMessage fontSize="1rem" color="tomato">
         {errors[name] && errors[name].message}
       </FormErrorMessage>
     </FormControl>
