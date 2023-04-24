@@ -5,11 +5,11 @@ import {
   FormLabel,
   Input,
   useFormControl,
-} from "@chakra-ui/react";
-import { useEffect, useId } from "react";
-import { useFormContext } from "react-hook-form";
-import { InputProps } from "./index.types";
-import { formatValidationRules } from "./index.utils";
+} from '@chakra-ui/react';
+import { useEffect, useId } from 'react';
+import { useFormContext } from 'react-hook-form';
+import { InputProps } from './index.types';
+import { formatValidationRules } from './index.utils';
 
 function InputField(props: InputProps) {
   const {

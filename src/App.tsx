@@ -1,18 +1,15 @@
-import {
-  Container,
-  Heading,
-} from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import OMAForm from "./components/OMAForm";
+import { Container, Heading } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import OMAForm from './components/OMAForm';
 
 function App() {
-  const [fields, setFields] = useState([])
+  const [fields, setFields] = useState([]);
 
   useEffect(() => {
     fetch('/fields.json')
       .then(response => response.json())
-      .then(data => setFields(data))
-  }, [])
+      .then(data => setFields(data));
+  }, []);
 
   return (
     <Container>
