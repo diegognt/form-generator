@@ -131,5 +131,33 @@
         "value": "HN"
       }
     ]
+  },
+  {
+    "name": "eat_ramen",
+    "input": "Radio",
+    "label": "Eat Ramen",
+    "helperText": "",
+    "layout": "Horizontal",
+    "validationRules": [
+      {
+        "type": "required",
+        "value": true,
+        "message": "This field is required."
+      }
+    ],
+    "options": [
+      {
+        "label": "Yes",
+        "value": "yes"
+      },
+      {
+        "label": "No",
+        "value": "no"
+      },
+      {
+        "label": "Time to time",
+        "value": "time_to_time"
+      }
+    ]
   }
 ]

@@ -7,6 +7,7 @@ export type FieldRule = {
 export type Field = {
   id: number;
   name: string;
+  input: 'Text' | 'Radio';
   label: string;
   type: 'password' | 'email' | 'text';
   helperText: string;
