@@ -60,7 +60,6 @@
     "name": "country",
     "input": "Select",
     "label": "Country",
-    "type": "",
     "helperText": "",
     "validationRules": [
       {
@@ -157,6 +156,34 @@
       {
         "label": "Time to time",
         "value": "time_to_time"
+      }
+    ]
+  },
+  {
+    "name": "ingredients",
+    "input": "Checkbox",
+    "label": "Ramen Ingredients",
+    "helperText": "",
+    "layout": "Horizontal",
+    "validationRules": [
+      {
+        "type": "required",
+        "value": true,
+        "message": "This field is required."
+      }
+    ],
+    "options": [
+      {
+        "label": "Soup",
+        "value": "soup"
+      },
+      {
+        "label": "Pork",
+        "value": "pork"
+      },
+      {
+        "label": "Shitake mushroom",
+        "value": "shitae_mushroom"
       }
     ]
   }
