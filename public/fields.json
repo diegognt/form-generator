@@ -1,39 +1,134 @@
 [
   {
-      "id": 1,
-      "name": "email",
-      "label": "Email Address",
-      "type": "email",
-      "helperText": "",
-      "validationRules": [
+    "name": "email",
+    "label": "Email Address",
+    "type": "email",
+    "input": "Text",
+    "helperText": "",
+    "validationRules": [
       {
-          "type": "required",
-          "value": true,
-          "message": "This field is required."
+        "type": "required",
+        "value": true,
+        "message": "This field is required."
       }
     ]
   },
   {
-      "id": 2,
-      "name": "password",
-      "label": "Password",
-      "type": "password",
-      "helperText": "",
-      "validationRules": [
+    "name": "password",
+    "label": "Password",
+    "input": "Text",
+    "type": "password",
+    "helperText": "",
+    "validationRules": [
       {
-          "type": "required",
-          "value": true,
-          "message": "This field is required."
+        "type": "required",
+        "value": true,
+        "message": "This field is required."
       },
       {
-          "type": "minLength",
-          "value": 5,
-          "message": "The passwords must be at least 5 characters long"
+        "type": "minLength",
+        "value": 5,
+        "message": "The passwords must be at least 5 characters long"
       },
       {
-          "type": "pattern",
-          "value": "^[a-zA-Z]+$",
-          "message": "The password should be only letters."
+        "type": "pattern",
+        "value": "^[a-zA-Z\\d]$",
+        "message": "The password should be only letters."
+      }
+    ]
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "input": "Text",
+    "type": "text",
+    "helperText": "",
+    "validationRules": [
+      {
+        "type": "required",
+        "value": false,
+        "message": "This field is required."
+      },
+      {
+        "type": "maxLength",
+        "value": 5,
+        "message": "Too much characters."
+      }
+    ]
+  },
+  {
+    "name": "country",
+    "input": "Select",
+    "label": "Country",
+    "type": "",
+    "helperText": "",
+    "validationRules": [
+      {
+        "type": "required",
+        "value": true,
+        "message": "This field is required."
+      }
+    ],
+    "options": [
+      {
+        "label": "United States",
+        "value": "US"
+      },
+      {
+        "label": "Canada",
+        "value": "CA"
+      },
+      {
+        "label": "Mexico",
+        "value": "MX"
+      },
+      {
+        "label": "Argentina",
+        "value": "AR"
+      },
+      {
+        "label": "Brazil",
+        "value": "BR"
+      },
+      {
+        "label": "Chile",
+        "value": "CL"
+      },
+      {
+        "label": "Colombia",
+        "value": "CO"
+      },
+      {
+        "label": "Costa Rica",
+        "value": "CR"
+      },
+      {
+        "label": "Cuba",
+        "value": "CU"
+      },
+      {
+        "label": "Dominican Republic",
+        "value": "DO"
+      },
+      {
+        "label": "Ecuador",
+        "value": "EC"
+      },
+      {
+        "label": "El Salvador",
+        "value": "SV"
+      },
+      {
+        "label": "Guatemala",
+        "value": "GT"
+      },
+      {
+        "label": "Haiti",
+        "value": "HT"
+      },
+      {
+        "label": "Honduras",
+        "value": "HN"
       }
     ]
   }

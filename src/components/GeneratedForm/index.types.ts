@@ -1,4 +1,4 @@
-type Rule = {
+export type FieldRule = {
   type: string;
   value: string | number | boolean;
   message: string;
@@ -10,7 +10,7 @@ export type Field = {
   label: string;
   type: 'password' | 'email' | 'text';
   helperText: string;
-  validationRules: Rule[];
+  validationRules: FieldRule[];
 };
 
 export type FormProps = {
