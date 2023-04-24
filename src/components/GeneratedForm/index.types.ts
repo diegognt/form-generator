@@ -4,17 +4,34 @@ export type FieldRule = {
   message: string;
 };
 
-export type Field = {
+export type FieldOption = {
+  label: string;
+  value: string;
+};
+
+type Field = {
   id: number;
   name: string;
-  input: 'Text' | 'Radio';
   label: string;
-  type: 'password' | 'email' | 'text';
+  input: 'Text' | 'Select' | 'Radio' | 'Checkbox';
   helperText: string;
   validationRules: FieldRule[];
 };
 
+export type TextInput = Field & {
+  type: 'password' | 'email' | 'text';
+};
+
+export type SelectInput = Field & {
+  options: FieldOption[];
+};
+
+export type ChooseInput = Field & {
+  layout: 'Horizontal' | 'Vertical';
+  options: FieldOption[];
+};
+
 export type FormProps = {
   method: 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-  fields: Field[];
+  fields: Array<TextInput | ChooseInput>;
 };
