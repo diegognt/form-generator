@@ -1,4 +1,4 @@
-import { useState, FocusEvent } from 'react';
+import React, { useState, FocusEvent } from 'react';
 import {
   FormControl,
   FormErrorMessage,
@@ -13,10 +13,10 @@ import {
   formatValidationRules,
   isRequiredField,
 } from '../GeneratedForm/index.utils';
-import { FieldOption } from '../OMAForm/index.types';
-import { CheckboxInputProps } from './index.types';
+import { CheckboxFieldProps } from '../CheckboxField/index.types';
+import { FieldOption } from '../GeneratedForm/index.types';
 
-function RadioField(props: CheckboxInputProps) {
+function RadioField(props: CheckboxFieldProps) {
   const {
     register,
     formState: { errors },

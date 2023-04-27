@@ -1,6 +1,6 @@
 import { FieldOption, FieldRule } from '../GeneratedForm/index.types';
 
-export type CheckboxInputProps = {
+export type CheckboxFieldProps = {
   name: string;
   label: string;
   options: FieldOption[];

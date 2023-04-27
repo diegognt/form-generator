@@ -1,10 +1,10 @@
-import { FieldOption, FieldRule } from "../OMAForm/index.types"
+import { FieldOption, FieldRule } from '../GeneratedForm/index.types';
 
-export type RadioInputProps = {
-  name: string
-  label: string
-  options: FieldOption[]
-  layout: "Horizontal" | "Vertical"
-  helperText?: string
-  validationRules: FieldRule[]
-}
+export type RadioFieldProps = {
+  name: string;
+  label: string;
+  options: FieldOption[];
+  layout: 'Horizontal' | 'Vertical';
+  helperText?: string;
+  validationRules: FieldRule[];
+};

@@ -2,7 +2,7 @@ import { FieldRule } from '../GeneratedForm/index.types';
 
 export type InputType = 'text' | 'email' | 'password';
 
-export type TextInputProps = {
+export type TextFieldProps = {
   name: string;
   label: string;
   type: InputType;
