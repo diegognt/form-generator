@@ -9,7 +9,7 @@ export type FieldOption = {
   value: string;
 };
 
-type Field = {
+type FormField = {
   id: number;
   name: string;
   label: string;
@@ -18,20 +18,20 @@ type Field = {
   validationRules: FieldRule[];
 };
 
-export type TextInput = Field & {
+export type TextFormField = FormField & {
   type: 'password' | 'email' | 'text';
 };
 
-export type SelectInput = Field & {
+export type SelectFormField = FormField & {
   options: FieldOption[];
 };
 
-export type ChooseInput = Field & {
+export type ChooseFormField = FormField & {
   layout: 'Horizontal' | 'Vertical';
   options: FieldOption[];
 };
 
 export type FormProps = {
   method: 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-  fields: Array<TextInput | ChooseInput>;
+  fields: Array<TextFormField | ChooseFormField | SelectFormField>;
 };

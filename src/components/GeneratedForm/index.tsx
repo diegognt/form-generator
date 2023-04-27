@@ -1,12 +1,21 @@
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import CheckboxField from '../CheckboxField';
-import InputField from '../InputField';
+import { CheckboxFieldProps } from '../CheckboxField/index.types';
 import RadioField from '../RadioField';
+import { RadioFieldProps } from '../RadioField/index.types';
 import SelectField from '../SelectField';
-import { FormProps, ChooseInput, SelectInput, TextInput } from './index.types';
+import { SelectFieldProps } from '../SelectField/index.types';
+import TextField from '../TextField';
+import { TextFieldProps } from '../TextField/index.types';
+import {
+  ChooseFormField,
+  FormProps,
+  SelectFormField,
+  TextFormField,
+} from './index.types';
 
-type Field = TextInput | SelectInput | ChooseInput;
+type Field = TextFormField | SelectFormField | ChooseFormField;
 
 function GeneratedForm(props: FormProps): JSX.Element {
   const { fields, method } = props;
@@ -15,15 +24,17 @@ function GeneratedForm(props: FormProps): JSX.Element {
   return (
     <FormProvider {...methods}>
       <form method={method}>
-        {fields.map((field: Field, index) => {
+        {fields.map((field: Field, index: number) => {
           if (field.input === 'Text')
-            return <InputField {...(field as TextInput)} key={index} />;
+            return <TextField {...(field as TextFieldProps)} key={index} />;
           if (field.input === 'Select')
-            return <SelectField {...(field as SelectInput)} key={index} />;
+            return <SelectField {...(field as SelectFieldProps)} key={index} />;
           if (field.input === 'Radio')
-            return <RadioField {...(field as ChooseInput)} key={index} />;
+            return <RadioField {...(field as RadioFieldProps)} key={index} />;
           if (field.input === 'Checkbox')
-            return <CheckboxField {...(field as ChooseInput)} key={index} />;
+            return (
+              <CheckboxField {...(field as CheckboxFieldProps)} key={index} />
+            );
         })}
         <button
           type="button"

@@ -10,13 +10,13 @@ import {
 } from '@chakra-ui/react';
 import { useFormContext } from 'react-hook-form';
 import { FieldOption } from '../GeneratedForm/index.types';
-import { CheckboxInputProps } from './index.types';
+import { CheckboxFieldProps } from './index.types';
 import {
   formatValidationRules,
   isRequiredField,
 } from '../GeneratedForm/index.utils';
 
-function CheckboxField(props: CheckboxInputProps) {
+function CheckboxField(props: CheckboxFieldProps) {
   const {
     register,
     formState: { errors },

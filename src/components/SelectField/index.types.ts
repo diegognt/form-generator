@@ -1,9 +1,9 @@
-import { FieldOption, FieldRule } from "../OMAForm/index.types"
+import { FieldOption, FieldRule } from '../GeneratedForm/index.types';
 
-export type SelectInputProps = {
-  name: string
-  label: string
-  options: FieldOption[]
-  helperText?: string
-  validationRules: FieldRule[]
-}
+export type SelectFieldProps = {
+  name: string;
+  label: string;
+  options: FieldOption[];
+  helperText?: string;
+  validationRules: FieldRule[];
+};

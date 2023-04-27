@@ -1,4 +1,4 @@
-import { useState, FocusEvent } from 'react';
+import React, { useState, FocusEvent } from 'react';
 import {
   FormControl,
   FormErrorMessage,
@@ -11,10 +11,10 @@ import {
   formatValidationRules,
   isRequiredField,
 } from '../GeneratedForm/index.utils';
-import { FieldOption } from '../OMAForm/index.types';
-import { SelectInputProps } from './index.types';
+import { SelectFieldProps } from './index.types';
+import { FieldOption } from '../GeneratedForm/index.types';
 
-function SelectField(props: SelectInputProps) {
+function SelectField(props: SelectFieldProps) {
   const {
     register,
     formState: { errors },

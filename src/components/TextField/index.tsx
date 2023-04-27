@@ -11,9 +11,9 @@ import {
   formatValidationRules,
   isRequiredField,
 } from '../GeneratedForm/index.utils';
-import { TextInputProps } from './index.types';
+import { TextFieldProps } from './index.types';
 
-function InputField(props: TextInputProps) {
+function TextField(props: TextFieldProps) {
   const {
     register,
     formState: { errors },
@@ -56,4 +56,4 @@ function InputField(props: TextInputProps) {
   );
 }
 
-export default InputField;
+export default TextField;
