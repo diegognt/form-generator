@@ -8,8 +8,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "format": "npx prettier --write \"src/**/*.{ts,tsx,json,css}\"",
-    "lint": "npx eslint \"src/**/*.{ts,tsx}\" --fix",
-    "test": "npx vitest --watch"
+    "lint:fix": "npx eslint \"src/**/*.{ts,tsx}\" --fix",
+    "lint": "npx eslint \"src/**/*.{ts,tsx}\"",
+    "test:watch": "npx vitest",
+    "test": "npx vitest run"
   },
   "dependencies": {
     "@chakra-ui/react": "2.5.5",
