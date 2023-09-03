@@ -49,9 +49,11 @@ function TextField(props: TextFieldProps) {
         {...inputProps}
       />
       {!!helperText && <FormHelperText>{helperText}</FormHelperText>}
-      <FormErrorMessage fontSize="1rem" color="tomato">
-        {errors[name] && errors[name].message}
-      </FormErrorMessage>
+      {!!errors[name] && (
+        <FormErrorMessage fontSize="1rem" color="tomato">
+          {errors[name]?.message as string}
+        </FormErrorMessage>
+      )}
     </FormControl>
   );
 }

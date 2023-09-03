@@ -14,13 +14,18 @@ export function isRequiredField(rules: FieldRule[]): boolean {
 }
 
 export function formatValidationRules(rules: FieldRule[]): RegisterOptions {
-  const formattedRules: RegisterOptions = {} as RegisterOptions;
+  let formattedRules: RegisterOptions = {} as RegisterOptions;
 
   for (const rule of rules) {
-    formattedRules[rule.type] = {
-      value:
-        rule.type === 'pattern' ? new RegExp(rule.value as string) : rule.value,
-      message: rule.message,
+    formattedRules = {
+      ...formattedRules,
+      [`${rule.type}`]: {
+        value:
+          rule.type === 'pattern'
+            ? new RegExp(rule.value as string)
+            : rule.value,
+        message: rule.message,
+      },
     };
   }
   return formattedRules;
